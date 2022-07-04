@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- tree view   -->
+    <record id="course_tree" model="ir.ui.view">
+        <field name="name">course.tree</field>
+        <field name="model">course.academy</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="author"/>
+                <field name="image"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <!-- form Views  -->
+    <record id="course_view" model="ir.ui.view">
+        <field name="name">View</field>
+        <field name="model">course.academy</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <form string="Idea form">
+                <group colspan="4">
+                    <group colspan="1" col="1">
+                        <field name="name"/>
+                        <field name="author"/>
+                        <field name="image"/>
+                    </group>
+                </group>
+                <notebook colspan="4">
+                    <page string="Description">
+                        <field name="description" nolabel="1"/>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+    <!-- search    -->
+    <record id="course_search" model="ir.ui.view">
+        <field name="name">course.search</field>
+        <field name="model">course.academy</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="author"/>
+            </search>
+        </field>
+    </record>
+    <!-- Action Menu   -->
+    <record id="course_action" model="ir.actions.act_window">
+        <field name="name">Course</field>
+        <field name="res_model">course.academy</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_content_smiling_face">
+            Course in the Would!!
+          </p>
+        </field>
+    </record>
+
+<!--  menu item  -->
+    <menuitem id="course_root"
+              name="Courses"
+              sequence="1"/>
+
+    <menuitem id="training_course_root"
+              name="Training"
+              parent="course_root"
+              action="course_action"
+              sequence="4"/>
+
+</odoo>
