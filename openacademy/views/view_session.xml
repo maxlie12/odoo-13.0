@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- session tree view   -->
+    <record id="view_session_tree" model="ir.ui.view">
+        <field name="name">session.tree</field>
+        <field name="model">session.academy</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="duration"/>
+                <field name="number_of_seat"/>
+                <field name="instructor"/>
+                <field name="taken_seats" widget="progressbar"/>
+                <field name="active"/>
+                <field name="teacher1"/>
+                <field name="teacher2"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- session form Views  -->
+    <record id="session_view_form" model="ir.ui.view">
+        <field name="name">course.form</field>
+        <field name="model">session.academy</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <form string="Idea form">
+                <group colspan="4">
+                    <group colspan="1" col="1">
+                        <field name="name"/>
+                        <field name="duration"/>
+                        <field name="number_of_seat"/>
+                        <field name="seats"/>
+                        <field name="taken_seats" widget="progressbar"/>
+                        <field name="active"/>
+                     </group>
+                    <group>
+                        <field name="start_date"/>
+                     </group>
+                </group>
+
+                <group>
+                    <field name="instructor" optinal="show"/>
+                </group>
+                 <group>
+                    <field name="teacher1" optinal="show"/>
+                </group>
+                 <group>
+                    <field name="teacher2" optinal="show"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- session action    -->
+    <record id="view_session_action" model="ir.actions.act_window">
+        <field name="name">session</field>
+        <field name="res_model">session.academy</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_content_smiling_face">
+            Session in the Would!!
+          </p>
+        </field>
+    </record>
+    <!--menu Session    -->
+    <menuitem id="session_root"
+              name="Session"
+              sequence="1" groups="group_manager_academy"/>
+
+    <menuitem id="session_training_root"
+              name="Session"
+              parent="course_root"
+              action="view_session_action"
+              sequence="1"/>
+
+</odoo>
