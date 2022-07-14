@@ -69,12 +69,11 @@
     <!--menu Session    -->
     <menuitem id="session_root"
               name="Session"
-              sequence="1" groups="group_manager_academy"/>
+              sequence="1" />
 
     <menuitem id="session_training_root"
               name="Session"
               parent="course_root"
               action="view_session_action"
               sequence="1"/>
-
 </odoo>

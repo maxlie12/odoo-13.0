@@ -1,6 +1,7 @@
 from odoo import http
 import logging
 import json
+
 _logger = logging.getLogger(__name__)
 
 
@@ -17,6 +18,7 @@ class CourseController(http.Controller):
                 'description': contact.description,
             })
         return contact_list
+    #
     @http.route('/api/insert', auth='public', website=False, csrf=False, type='json', methods=['get', 'POST'])
     def add(self, **kw):
         insert = http.request.env['course.academy'].sudo().create({

@@ -48,13 +48,11 @@
     <!--menu attendees    -->
     <menuitem id="attendees_root"
               name="Attendees"
-              sequence="1"
-              groups="group_manager_academy"/>
+              sequence="1" />
 
     <menuitem id="attendees_training_root"
               name="Attendees"
               parent="course_root"
-              action="view_attendees_action"
-              sequence="1" />
+              action="view_attendees_action"/>
 
 </odoo>

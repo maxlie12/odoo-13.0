@@ -6,7 +6,6 @@
         <field name="model">course.academy</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name"/>
                 <field name="author"/>
                 <field name="image"/>
                 <field name="description"/>
@@ -22,26 +21,16 @@
         <field name="priority" eval="16"/>
         <field name="arch" type="xml">
             <form string="Idea form">
-                <group colspan="4">
-                    <group  col="2">
+                <group>
+                    <group>
                         <field name="name"/>
                         <field name="author"/>
-                        <field name="responsible_user"/>
                         <field name="description"/>
                     </group>
                     <group>
-                        <field name="image" widget="image" class="oe_avatar" />
+                        <field name="image" widget="image" class="oe_avatar"/>
                     </group>
                 </group>
-                <!--   description              -->
-<!--                <notebook colspan="4">-->
-<!--                    <page string="Description">-->
-<!--                        <field name="description" nolabel="1"/>-->
-<!--                    </page>-->
-<!--                </notebook>-->
-<!--                <group>-->
-<!--                    <field name="session_list" optinal="show"/>-->
-<!--                </group>-->
             </form>
         </field>
     </record>
@@ -69,6 +58,20 @@
             </kanban>
         </field>
     </record>
+    <!--  wizard   -->
+    <record model="ir.ui.view" id="wizard_form_view">
+        <field name="name">wizard.form</field>
+        <field name="model">wizard.academy</field>
+        <field name="arch" type="xml">
+            <form string="Add attendees">
+                <group>
+                    <field name="session_id"/>
+                    <field name="attendees_id"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <!-- action window wizard   -->
 
     <!-- search    -->
     <record id="view_course_search" model="ir.ui.view">
@@ -98,14 +101,12 @@
         <!--  menu item  -->
     <menuitem id="course_root"
               name="Courses"
-              sequence="1"
-              groups="group_manager_academy"/>
+              sequence="1"/>
 
     <menuitem id="training_course_root"
               name="Course"
               parent="course_root"
               action="view_course_action"
-              sequence="4"
               />
 
 </odoo>
