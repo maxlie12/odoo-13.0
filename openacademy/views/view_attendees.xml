@@ -25,7 +25,6 @@
                         <group colspan="1" col="1">
                             <field name="name"/>
                             <field name="instructor"/>
-                            <field name="session_id"/>
                             <field name="teacher1"/>
                             <field name="teacher2"/>
                         </group>

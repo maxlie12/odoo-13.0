@@ -16,7 +16,7 @@ class SessionInfo(models.Model):
     seats = fields.Integer(string='seats', computer='seats')
     # connect many 2 one(Many2one)
     instructor = fields.Many2one('attendees.academy', string='Instructor',
-                                 domain=[('instructor', '=', True)])
+                                 domain=[('|','instructor', '=', True)])
     teacher1 = fields.Many2one('attendees.academy', string='Teacher1',
                                domain=[('teacher1', '=', True)])
     teacher2 = fields.Many2one('attendees.academy', string='Teacher2',

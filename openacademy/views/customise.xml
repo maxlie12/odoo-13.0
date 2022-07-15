@@ -21,16 +21,25 @@
         <field name="priority" eval="16"/>
         <field name="arch" type="xml">
             <form string="Idea form">
-                <group>
+                <header>
+                    <button name="%(openacademy.create_attendees_wizard)" string="Create attendees" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
                     <group>
-                        <field name="name"/>
-                        <field name="author"/>
-                        <field name="description"/>
+                        <group>
+                            <field name="author"/>
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="image" widget="image" class="oe_avatar"/>
+                        </group>
                     </group>
-                    <group>
-                        <field name="image" widget="image" class="oe_avatar"/>
-                    </group>
-                </group>
+                </sheet>
             </form>
         </field>
     </record>
@@ -58,21 +67,6 @@
             </kanban>
         </field>
     </record>
-    <!--  wizard   -->
-    <record model="ir.ui.view" id="wizard_form_view">
-        <field name="name">wizard.form</field>
-        <field name="model">wizard.academy</field>
-        <field name="arch" type="xml">
-            <form string="Add attendees">
-                <group>
-                    <field name="session_id"/>
-                    <field name="attendees_id"/>
-                </group>
-            </form>
-        </field>
-    </record>
-    <!-- action window wizard   -->
-
     <!-- search    -->
     <record id="view_course_search" model="ir.ui.view">
         <field name="name">course.search</field>
@@ -81,6 +75,7 @@
             <search>
                 <field name="name"/>
                 <field name="author"/>
+                <field name="description"/>
             </search>
         </field>
     </record>

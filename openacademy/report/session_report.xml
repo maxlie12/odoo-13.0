@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_infor_id_card">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <p>Name : <span t-field="o.name"/> </p>
+                    <P>Start_date: <span t-field="o.start_date"/></P>
+                </t>
+            </t>
+        </t>
+    </template>
+    <record id="action_session_id_card" model="ir.actions.report">
+           <field name="name">Session id Card</field>
+           <field name="model">session.academy</field>
+           <field name="report_type">qweb-pdf</field>
+           <field name="report_name">openacademy.report_infor_id_card</field>
+           <field name="report_file">education.report_infor_id_card</field>
+           <field name="print_report_name">'Session Card'</field>
+           <field name="binding_model_id" ref="model_session_academy"/>
+           <field name="binding_type">report</field>
+    </record>
+<!--        <report-->
+<!--        id="report_session" string="report session" model="ir.model" name="report_session_id_card" file="report_session_id_card"-->
+<!--        ></report>-->
+</odoo>

@@ -27,16 +27,16 @@
             <field name="domain_force">[('session_list', 'not in', [])]</field>
         </record>
 
-<!--        <record id="only_responsible_can_modify" model="ir.rule"        >-->
-<!--            <field name="name">Only responsible can modify Course</field>-->
-<!--            <field name="model_id" ref="model_course_academy"/>-->
-<!--            <field name="perm_read" eval="1"/>-->
-<!--            <field name="perm_write" eval="1"/>-->
-<!--            <field name="perm_create" eval="1"/>-->
-<!--            <field name="perm_unlink" eval="1"/>-->
-<!--            <field name="domain_force">-->
-<!--                ['|' , ('create_uid','=',1),('create_uid','=',user.id)]-->
-<!--            </field>-->
-<!--        </record>-->
+        <record id="only_responsible_can_modify" model="ir.rule"        >
+            <field name="name">Only responsible can modify Course</field>
+            <field name="model_id" ref="model_course_academy"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+            <field name="domain_force">
+                ['|' , ('create_uid','=',1),('create_uid','=',user.id)]
+            </field>
+        </record>
     </data>
 </odoo>

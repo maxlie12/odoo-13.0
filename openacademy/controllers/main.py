@@ -18,10 +18,10 @@ class CourseController(http.Controller):
                 'description': contact.description,
             })
         return contact_list
-    #
+
     @http.route('/api/insert', auth='public', website=False, csrf=False, type='json', methods=['get', 'POST'])
     def add(self, **kw):
-        insert = http.request.env['course.academy'].sudo().create({
+        insert = http.request.env['course.academy'].create({
             'name': kw.get('name'),
             'author': kw.get('author'),
             'description': kw.get('description')

@@ -29,25 +29,28 @@
                 <group colspan="4">
                     <group colspan="1" col="1">
                         <field name="name"/>
-                        <field name="duration"/>
                         <field name="number_of_seat"/>
-                        <field name="seats"/>
+<!--                        <field name="seats"/>-->
                         <field name="taken_seats" widget="progressbar"/>
-                        <field name="active"/>
+<!--                        <field name="active"/>-->
                      </group>
                     <group>
                         <field name="start_date"/>
+                        <field name="duration"/>
                      </group>
                 </group>
 
                 <group>
-                    <field name="instructor" optinal="show"/>
+                    <field name="instructor"/>
                 </group>
-                 <group>
-                    <field name="teacher1" optinal="show"/>
-                </group>
-                 <group>
-                    <field name="teacher2" optinal="show"/>
+<!--                 <group>-->
+<!--                    <field name="teacher1" optinal="show"/>-->
+<!--                </group>-->
+<!--                 <group>-->
+<!--                    <field name="teacher2" optinal="show"/>-->
+<!--                </group>-->
+                <group>
+                    <field name="attendees_id"/>
                 </group>
             </form>
         </field>
@@ -56,7 +59,7 @@
 
     <!-- session action    -->
     <record id="view_session_action" model="ir.actions.act_window">
-        <field name="name">session</field>
+        <field name="name">Session</field>
         <field name="res_model">session.academy</field>
         <field name="type">ir.actions.act_window</field>
         <field name="view_mode">kanban,tree,form</field>
